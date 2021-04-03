@@ -3,31 +3,29 @@
  */
 
 // Module
-export * from './ros/ros-ng.module';
+export * from './lib/ros-ng.module';
 
 
 // Componententen
-export * from './ros/ros-ng.component';
+export * from './lib/ros-ng.component';
 // RosconnectService
-export * from './ros/rosconnect.service';
+export * from './lib/rosconnect.service';
 
 // Ros-Services
-export * from './ros/services/animatedspeech.service';
-export * from './ros/services/language.service';
-export * from './ros/services/life.service';
-export * from './ros/services/rest.service';
-export * from './ros/services/stiffness.service';
-export * from './ros/services/tablet.service';
-export * from './ros/services/volume.service';
-export * from './ros/services/wakeup.service';
+export * from './lib/services/animatedspeech.service';
+export * from './lib/services/language.service';
+export * from './lib/services/life.service';
+export * from './lib/services/rest.service';
+export * from './lib/services/stiffness.service';
+export * from './lib/services/tablet.service';
+export * from './lib/services/volume.service';
+export * from './lib/services/wakeup.service';
 
 // Ros-Topics
-// export * from './ros/topics/behaviors.service';
-// export * from './ros/topics/client.service';
-// export * from './ros/topics/pong.service';
-export * from './ros/topics/shore.service';
-// export * from './ros/topics/smove.service';
-export * from './ros/topics/speech.service';
+export * from './lib/topics/behaviors.service';
+export * from './lib/topics/client.service';
+export * from './lib/topics/shore.service';
+export * from './lib/topics/speech.service';
 
 // Ros-Param
-export * from './ros/rosparam.service'
+export * from './lib/rosparam.service'

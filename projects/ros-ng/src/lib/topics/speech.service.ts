@@ -3,9 +3,7 @@ import { RosTopicService } from '../rostopic.service';
 import { Subject } from 'rxjs';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SpeechService {
 
   constructor(

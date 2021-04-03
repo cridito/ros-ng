@@ -7,13 +7,13 @@
       "projectType": "library",
       "root": "projects/ros-ng",
       "sourceRoot": "projects/ros-ng/src",
-      "prefix": "lib",
+      "prefix": "ros",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ros-ng/tsconfig.lib.json",
-            "project": "projects/ros-ng/ng-package.json"            
+            "project": "projects/ros-ng/ng-package.json"
           },
           "configurations": {
             "production": {
