@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ros-ng",
       "sourceRoot": "projects/ros-ng/src",
-      "prefix": "ros",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
