@@ -25,11 +25,12 @@ export class RosParamService {
       tap(message => this.logService.setLogParam(paramName, message)));
   }
 
-  setRosParam(paramName: string): Observable<any> {
+  setRosParam(paramName: string, value: any): Observable<any> {
     const param = new ROSLIB.Param({ros : this.pepper.ros,name : paramName});
     const paramSub = new Subject<any>();
-    param.set(
-      value => paramSub.next(value)
+    param.set
+      value,
+      result => paramSub.next(result)
     );
     return paramSub.asObservable().pipe(
       tap(message => this.logService.setLogParam(paramName, message)));
