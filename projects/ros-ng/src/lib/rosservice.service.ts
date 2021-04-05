@@ -1,51 +1,31 @@
 import { Injectable } from '@angular/core';
 import { RosconnectService } from './rosconnect.service';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { LogService } from './log.service';
+import * as ROSLIB from 'roslib';
 
-
-declare const ROSLIB: any;
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RosServiceService {
 
-  serviceSubject: BehaviorSubject<any>;
+  constructor(private pepper: RosconnectService, private logService: LogService
+  ) {}
 
-  constructor(
-    private pepper: RosconnectService,
-    private logService: LogService
-  ) {
-    this.serviceSubject = new BehaviorSubject<any>(0);
-  }
-
-
-  private getService(serviceName: string, serviceType: string, requestObject: any = ""): any{
+  callService(serviceName: string, serviceType: string, requestObject: Object = null): Subject<Object>{
+    let request;
     const service = new ROSLIB.Service({ros : this.pepper.ros,name : serviceName,serviceType : serviceType});
-    const request = new ROSLIB.ServiceRequest(requestObject);
-    return {service: service, request: request}
-  }
-
-
-  callService(serviceName: string, serviceType: string, requestObject: any = null): BehaviorSubject<any>{
-    const service = new ROSLIB.Service({ros : this.pepper.ros,name : serviceName,serviceType : serviceType});
-    let request: any;
     requestObject ? request = new ROSLIB.ServiceRequest(requestObject) : request = new ROSLIB.ServiceRequest();
-    console.log(requestObject);
+    const serviceSubject = new Subject< Object >();
     service.callService(
        request,
        result => {
-         this.serviceSubject.next(result);
-         console.log(result);
+         serviceSubject.next(result);
          this.logService.setLogService(serviceName, requestObject, result);
        },
        error => {
-         console.log(error);
-         this.serviceSubject.error(error);
+         serviceSubject.error(error);
          this.logService.setLogService(serviceName, requestObject, error);
        });
 
-    return this.serviceSubject;
+    return serviceSubject;
   }
 }

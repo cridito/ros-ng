@@ -2,9 +2,8 @@ import { Inject, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import * as ROSLIB from 'roslib';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class RosconnectService {
       ros: ROSLIB.Ros;
       rosconnection: Subject<number>;

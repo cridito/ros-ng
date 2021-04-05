@@ -7,14 +7,12 @@ import * as ROSLIB from 'roslib';
 @Injectable()
 export class RosTopicService {
 
-  topic: ROSLIB.Topic;
+  //topic: ROSLIB.Topic;
 
   constructor(private pepper: RosconnectService, private logService: LogService)
-  {
+  {}
 
-  }
-
-  publishTopic(topicName: string, messageType: string, msgObject: any = null) : void{
+  publishTopic(topicName: string, messageType: string, msgObject: Object = null) : void{
     const topic = new ROSLIB.Topic({ros : this.pepper.ros, name : topicName, messageType : messageType});
     topic.publish(msgObject ? new ROSLIB.Message(msgObject) : new ROSLIB.Message());
     this.logService.setLogTopic(topicName,msgObject,"publish");

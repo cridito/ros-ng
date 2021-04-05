@@ -3,9 +3,7 @@ import { RosTopicService } from '../rostopic.service';
 import { Subject } from 'rxjs';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ShoreService {
 
   constructor(
@@ -15,7 +13,7 @@ export class ShoreService {
   topicName: string = '/shoreData';
   messageType: string = 'shore_msgs/msgShoreContent';
 
-  getShoreData(): Subject<any>{
+  getShoreData(): Subject<Object>{
       return this.rosTopic.subscribeTopic(this.topicName, this.messageType);
     }
 
