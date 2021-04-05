@@ -13,7 +13,7 @@ export class GetLanguageService {
     serviceName: string = 'naoqi_driver/get_language';
     serviceType: string = 'naoqi_bridge_msgs/GetString';
 
-    getLanguage(): Subject<Object> {
+    getLanguage(): Subject<any> {
         return this.rosService.callService(this.serviceName, this.serviceType);
     }
 }

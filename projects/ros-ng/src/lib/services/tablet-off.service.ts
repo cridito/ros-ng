@@ -13,7 +13,7 @@ export class TabletOffService {
     serviceName: string = '/tablet_hidewebview';
     serviceType: string = 'faps_pepper_ros_bridge/TabletHideWebview';
 
-  displayOff(): Subject<Object>{
+  displayOff(): Subject<any>{
     return this.rosService.callService(this.serviceName, this.serviceType);
   }
 }

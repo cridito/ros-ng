@@ -15,7 +15,7 @@ export class SetLanguageService {
     serviceType: string = 'naoqi_bridge_msgs/SetString';
     request: { [data:string]: string } = { data: ''};
 
-    setLanguage(language: string): Subject<Object> {
+    setLanguage(language: string): Subject<any> {
         this.request.data = language;
         return this.rosService.callService(this.serviceName, this.serviceType, this.request);
     }

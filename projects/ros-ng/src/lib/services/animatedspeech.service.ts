@@ -23,14 +23,14 @@ export class AnimatedspeechService {
     cancel: false
   }
 
-  stopBehavior(behavior: string, msg: string, cancel: boolean = true): Subject<Object> {
+  stopBehavior(behavior: string, msg: string, cancel: boolean = true): Subject<any> {
     this.request.message = msg;
     this.request.animation = behavior;
     this.request.cancel = cancel;
     return this.rosService.callService(this.serviceName, this.serviceType, this.request);
   }
 
-  startBehavior(behavior: string, msg: string, cancel: boolean = false): Subject<Object> {
+  startBehavior(behavior: string, msg: string, cancel: boolean = false): Subject<any> {
     this.request.message = msg;
     this.request.animation = behavior;
     this.request.cancel = cancel;

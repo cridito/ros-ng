@@ -14,7 +14,17 @@ export class ClientsService {
   topicName: string = '/connected_clients';
   messageType: string = 'rosbridge_msgs/ConnectedClients';
 
-  getClients(): Subject<Object> {
+  getClients(): Subject<Clients> {
     return this.rosTopic.subscribeTopic(this.topicName, this.messageType);
+  }
+}
+
+interface Clients {
+  clients: {
+    ip_address: string;
+    connection_time: {
+      secs: number;
+      nsecs: number;
+    }
   }
 }

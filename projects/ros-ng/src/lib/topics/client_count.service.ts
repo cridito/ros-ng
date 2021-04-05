@@ -14,7 +14,11 @@ export class ClientCountService {
   topicName: string = '/client_count';
   messageType: string = 'std_msgs/Int32';
 
-  getClientCount(): Subject<Object> {
+  getClientCount(): Subject<ClientCount> {
     return this.rosTopic.subscribeTopic(this.topicName, this.messageType);
   }
+}
+
+interface ClientCount {
+  data: string
 }

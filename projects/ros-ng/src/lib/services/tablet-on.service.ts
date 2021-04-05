@@ -13,7 +13,7 @@ export class TabletOnService {
     serviceName: string = '/tablet_webviewblank';
     serviceType: string = 'faps_pepper_ros_bridge/TabletWebviewBlank';
 
-  displayOn(): Subject<Object>{
+  displayOn(): Subject<any>{
     return this.rosService.callService(this.serviceName, this.serviceType);
   }
 }

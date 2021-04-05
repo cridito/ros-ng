@@ -14,7 +14,7 @@ export class WakeupService {
   serviceName: string = '/pepper_robot/pose/wakeup';
   serviceType: string = 'std_srvs/Empty';
 
-  wakeUp(): Subject<Object> {
+  wakeUp(): Subject<any> {
       return this.rosService.callService(this.serviceName, this.serviceType);
     }
 }

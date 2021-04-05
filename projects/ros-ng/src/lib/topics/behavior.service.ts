@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RosTopicService } from '../rostopic.service';
 import { Subject } from 'rxjs';
+import { Header } from '../interface/header';
+import { GoalId } from '../interface/goal-id';
 
 @Injectable()
 export class BehaviorService {
@@ -14,7 +16,7 @@ export class BehaviorService {
   topicName: string = '/run_behavior/goal';
   messageType: string = 'naoqi_bridge_msgs/RunBehaviorActionGoal';
   goalID: string;
-  message: Object;
+  message: BehaviorMessage;
 
   startBehavior(behavior: string): void{
     this.goalID = "goal" + Date.now() + behavior;
@@ -27,4 +29,10 @@ export class BehaviorService {
   stopBehavior():void{
   }
 
+}
+
+interface BehaviorMessage {
+  header : {seq: number;stamp: number;frame_id: string;};
+  goal_id: {stamp: {secs : number; nsecs : number;},id: string;};
+  goal: {behavior : string}
 }

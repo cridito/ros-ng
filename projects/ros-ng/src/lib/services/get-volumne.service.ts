@@ -14,7 +14,7 @@ export class GetVolumneService {
     serviceType: string = 'faps_pepper_ros_bridge/GetVolume';
 
 
-    getVolumne(): Subject<Object>  {
+    getVolumne(): Subject<any>  {
         return this.rosService.callService(this.serviceName, this.serviceType);
     }
 }
