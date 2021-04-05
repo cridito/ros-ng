@@ -21,10 +21,12 @@ export class ClientsService {
 
 interface Clients {
   clients: {
-    ip_address: string;
-    connection_time: {
-      secs: number;
-      nsecs: number;
+    [index: number]:{
+      ip_address: string;
+      connection_time: {
+        secs: number;
+        nsecs: number;
+      }
     }
   }
 }

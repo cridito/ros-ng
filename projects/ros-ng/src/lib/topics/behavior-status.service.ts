@@ -26,8 +26,10 @@ export class BehaviorStatusService {
 interface BehaviorStatus {
     header : Header;
     status_list: {
-      goal_id: GoalId;
-      status: number;
-      text: string;
+      [index: number]:{
+        goal_id: GoalId;
+        status: number;
+        text: string;
+      }
     };
 }
