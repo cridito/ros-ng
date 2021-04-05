@@ -28,7 +28,7 @@ export class RosParamService {
   setRosParam(paramName: string, value: any): Observable<any> {
     const param = new ROSLIB.Param({ros : this.pepper.ros,name : paramName});
     const paramSub = new Subject<any>();
-    param.set
+    param.set(
       value,
       result => paramSub.next(result)
     );
