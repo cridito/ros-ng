@@ -32,3 +32,4 @@ export * from './lib/topics/shore.service';
 export * from './lib/topics/speech.service';
 
 // Ros-Param
+export * from './lib/rosparam.service';
