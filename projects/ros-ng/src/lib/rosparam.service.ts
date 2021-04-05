@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { RosconnectService } from './rosconnect.service';
 import { Subject, Observable } from 'rxjs';
-
-
-declare const ROSLIB: any;
+import { LogService } from './log.service';
+import { catchError, map, tap } from 'rxjs/operators';
+import * as ROSLIB from 'roslib';
 
 @Injectable()
 export class RosParamService {
@@ -17,7 +17,7 @@ export class RosParamService {
 
   getRosParam(paramName: string): Observable<any> {
     const param = new ROSLIB.Param({ros : this.pepper.ros,name : paramName});
-    paramSub = new Subject<any>();
+    const paramSub = new Subject<any>();
     param.get(
       value => paramSub.next(value)
     );
@@ -27,7 +27,7 @@ export class RosParamService {
 
   setRosParam(paramName: string): Observable<any> {
     const param = new ROSLIB.Param({ros : this.pepper.ros,name : paramName});
-    paramSub = new Subject<any>();
+    const paramSub = new Subject<any>();
     param.set(
       value => paramSub.next(value)
     );
