@@ -10,6 +10,7 @@ export * from './lib/goal-messages'
 
 // Componente
 export * from './lib/ros-ng.component';
+export * from './lib/components/speech/speech-dropdown.component';
 
 // Ros-Services
 export * from './lib/services/animatedspeech.service';

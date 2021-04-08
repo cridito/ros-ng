@@ -4,12 +4,16 @@ import { RosTopicService } from './rostopic.service';
 import { RosconnectService } from './rosconnect.service';
 import { RosServiceService } from './rosservice.service';
 import { RosParamService } from './rosparam.service';
+import { SpeechDropdownComponent } from './components/speech/speech-dropdown.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [RosNgComponent],
+  declarations: [RosNgComponent, SpeechDropdownComponent],
   imports: [
+    FormsModule,
+    ReactiveFormsModule
   ],
-  exports: [RosNgComponent],
+  exports: [RosNgComponent, SpeechDropdownComponent],
   providers: [
     RosTopicService,
     RosServiceService,
