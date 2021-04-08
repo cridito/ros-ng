@@ -11,7 +11,7 @@ export * from './lib/goal-messages'
 // Componente
 export * from './lib/ros-ng.component';
 export * from './lib/components/speech/speech-dropdown.component';
-
+export * from './lib/components/speech/speech-input.component';
 // Ros-Services
 export * from './lib/services/animatedspeech.service';
 export * from './lib/services/get-language.service';
