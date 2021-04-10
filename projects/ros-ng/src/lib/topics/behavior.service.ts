@@ -18,7 +18,7 @@ export class BehaviorService {
   goalID: string;
   message: BehaviorMessage;
 
-  startBehavior(behavior: string): void{
+  startBehavior(behavior: string): void {
     this.goalID = "goal" + Date.now() + behavior;
     this.message = {header : {seq: 0,stamp: 0,frame_id: ''}, goal_id:{stamp: {secs : 0,nsecs : 0},id: this.goalID},
                                                   goal:{behavior : behavior}};

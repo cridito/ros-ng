@@ -13,7 +13,7 @@ export class SetLanguageService {
 
     serviceName: string = 'naoqi_driver/set_language';
     serviceType: string = 'naoqi_bridge_msgs/SetString';
-    request: { [data:string]: string } = { data: ''};
+    request: { data: string } = { data: ''};
 
     setLanguage(language: string): Subject<any> {
         this.request.data = language;

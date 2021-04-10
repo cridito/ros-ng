@@ -12,9 +12,9 @@ export class SetVolumneService {
     }
     serviceName: string = '/volume_setting';
     serviceType: string = 'faps_pepper_ros_bridge/SetVolume';
-    request: { [percent : string] : string } = { data : ''};
+    request: { percent: number } = { percent : 70 };
 
-    setVolumne(volumne: string): Subject<any>  {
+    setVolumne(volumne: number): Subject<any>  {
         this.request.percent = volumne;
         return this.rosService.callService(this.serviceName, this.serviceType, this.request);
     }

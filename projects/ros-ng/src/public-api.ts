@@ -13,6 +13,7 @@ export * from './lib/ros-ng.component';
 export * from './lib/components/speech/speech-dropdown.component';
 export * from './lib/components/speech/speech-input.component';
 // Ros-Services
+export * from './lib/rosservice.service';
 export * from './lib/services/animatedspeech.service';
 export * from './lib/services/get-language.service';
 export * from './lib/services/set-language.service';
@@ -25,6 +26,7 @@ export * from './lib/services/tablet-off.service';
 export * from './lib/services/wakeup.service';
 
 // Ros-Topics
+export * from './lib/rostopic.service';
 export * from './lib/topics/behavior.service';
 export * from './lib/topics/behavior-status.service';
 export * from './lib/topics/client_count.service';

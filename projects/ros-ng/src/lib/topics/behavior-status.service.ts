@@ -17,7 +17,7 @@ export class BehaviorStatusService {
     topicName: string = '/run_behavior/status';
     messageType: string = 'actionlib_msgs/GoalStatusArray';
 
-    getBehaviourStatus(): Subject<any> {
+    getBehaviorStatus(): Subject<BehaviorStatus> {
       return this.rosTopic.subscribeTopic(this.topicName, this.messageType);
     }
 

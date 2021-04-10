@@ -14,7 +14,7 @@ export class ShoreService {
   topicName: string = '/shoreData';
   messageType: string = 'shore_msgs/msgShoreContent';
 
-  getShoreData(): Subject<ShoreMessage>{
+  getShoreData(): Subject<ShoreMessage> {
       return this.rosTopic.subscribeTopic(this.topicName, this.messageType);
     }
 

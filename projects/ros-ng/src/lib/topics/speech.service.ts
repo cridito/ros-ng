@@ -14,15 +14,14 @@ export class SpeechService {
   messageType: string = 'std_msgs/String';
   message: SpeechMessage = { data : ''};
 
-  say(msg: string): void{
+  say(msg: string): void {
     this.message.data = msg;
     this.rosTopic.publishTopic(this.topicName, this.messageType, this.message);
   }
 
-  getSpeechData(): Subject<SpeechMessage>{
+  getSpeechData(): Subject<SpeechMessage> {
     return this.rosTopic.subscribeTopic(this.topicName, this.messageType);
   }
-
 
 }
 

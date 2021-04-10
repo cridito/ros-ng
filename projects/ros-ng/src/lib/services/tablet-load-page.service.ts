@@ -12,9 +12,9 @@ export class TabletLoadPageService {
     }
     serviceName: string = '/tablet_webview';
     serviceType: string = 'faps_pepper_ros_bridge/TabletWebview';
-    request: { [name : string] : string } = {name : ''};
+    request: { name: string } = {name : ''};
 
-  loadPage(url: string): Subject<any>{
+  loadPage(url: string): Subject<any> {
     this.request.name = url;
     return this.rosService.callService(this.serviceName, this.serviceType, this.request);
   }
